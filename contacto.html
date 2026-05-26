@@ -18,10 +18,24 @@
             color: #4a3b32;
         }
 
-        
+        /* --- Estilos del Header y Navbar Modificados --- */
         header {
             background-color: #3e2723;
-            padding: 15px;
+            padding: 8px 40px; /* Reducido un poco para compensar el tamaño del logo */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-container img {
+            height: 80px; /* Logo más grande (antes 50px) */
+            width: auto;  
+            display: block;
         }
 
         nav ul {
@@ -29,14 +43,15 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
-            gap: 20px;
+            align-items: center;
+            gap: 25px; /* Un poco más de espacio entre enlaces */
         }
 
         nav a {
             color: #d7ccc8;
             text-decoration: none;
             font-weight: bold;
+            font-size: 17px; /* Aumentado ligeramente el texto para ir a la par con el logo */
             transition: color 0.2s ease;
         }
 
@@ -184,6 +199,13 @@
 
         
         @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .logo-container img {
+                height: 70px; /* Un pelín más pequeño en móviles para que no sature */
+            }
             main {
                 padding: 30px 15px;
             }
@@ -214,6 +236,11 @@
 
     <header>
         <nav>
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="Logo.png" alt="Logo Cafetería">
+                </a>
+            </div>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="menu.html">Menú</a></li>

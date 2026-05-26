@@ -1,7 +1,8 @@
+<!DOCTYPE html>
 <html lang="es"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú Completo - Cafè delizioso</title>
+    <title>Menú Completo</title>
     <style>
         * {
             margin: 0;
@@ -37,8 +38,17 @@
 
         .main-navbar {
             background-color: #3e2723;
-            padding: 15px;
+            padding: 10px 40px;
             margin: -30px -20px 20px -20px; 
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+        }
+
+        .main-navbar .nav-logo {
+            height: 80px;
+            width: auto;
+            display: block;
         }
 
         .main-navbar ul {
@@ -46,17 +56,18 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
-            gap: 20px;
+            align-items: center;
+            gap: 25px;
         }
 
         .main-navbar a {
             color: #d7ccc8;
             text-decoration: none;
             font-weight: bold;
+            font-size: 1.1rem;
             transition: color 0.2s ease;
             background: none; 
-            padding: 5px 10px;
+            padding: 5px 0; 
             border-radius: 0;
         }
 
@@ -67,7 +78,7 @@
 
         .main-navbar a.active {
             color: #ffffff;
-            border-bottom: 2px solid #ffffff;
+            border-bottom: 3px solid #ffffff; 
         }
 
         
@@ -313,17 +324,22 @@
             color: #f1ddd0;
             font-size: 0.9rem;
         }
-
         @media(max-width: 768px) {
             .logo-container h1 {
                 font-size: 2.2rem;
+            }
+
+            .main-navbar {
+                flex-direction: column; 
+                gap: 15px;
+                padding: 15px 20px;
             }
 
             .main-navbar ul {
                 flex-direction: row; 
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 10px;
+                gap: 15px;
             }
 
             .menu-subnav ul {
@@ -345,7 +361,9 @@
 <body>
 
     <header>
+    
         <nav class="main-navbar">
+            <img src="Logo.png" alt="Byte & Coffee Logo" class="nav-logo">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="menu.html" class="active">Menú</a></li>

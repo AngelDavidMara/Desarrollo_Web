@@ -20,10 +20,24 @@
             text-align: center;
         }
 
-        
+        /* --- Estilos del Header y Navbar Modificados --- */
         header {
             background-color: #3e2723;
-            padding: 15px;
+            padding: 8px 40px; /* Ajustado para dar aire a los lados */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between; /* Empuja el logo a la izquierda y el menú a la derecha */
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-container img {
+            height: 80px; /* Tamaño del logo idéntico al de la página de contacto */
+            width: auto;  
+            display: block;
         }
 
         nav ul {
@@ -31,14 +45,15 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
-            gap: 20px;
+            align-items: center;
+            gap: 25px; /* Espaciado cómodo entre los enlaces */
         }
 
         nav a {
             color: #d7ccc8;
             text-decoration: none;
             font-weight: bold;
+            font-size: 17px;
             transition: color 0.2s ease;
         }
 
@@ -98,6 +113,17 @@
         }
 
         
+        /* Adaptación para pantallas pequeñas */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .logo-container img {
+                height: 70px; /* Reducción sutil en pantallas móviles */
+            }
+        }
+
         footer {
             background-color: #a67b5b;
             color: white;
@@ -111,6 +137,11 @@
 
     <header>
         <nav>
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="Logo.png" alt="Logo Cafetería">
+                </a>
+            </div>
             <ul>
                 <li><a href="index.html" class="active">Inicio</a></li>
                 <li><a href="menu.html">Menú</a></li>

@@ -3,19 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestros Productos - Cafetería</title>
-
-    
+    <title>Nuestros Productos - Byte & Coffee</title>
     <style>
-       
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #fcf8f5; /* Fondo cálido tono café claro */
-            color: #4a3b32;
+            box-sizing: border-box;
         }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fcf8f5; /* Fondo cálido tono café claro */
+            color: #4a3b32;
+            line-height: 1.6;
+        }
+
+        /* --- Estilos de la Barra de Navegación Global --- */
+        header {
+            background-color: #3e2723;
+            padding: 8px 40px;
+        }
+
+        .main-navbar-container {
+            display: flex;
+            justify-content: space-between; /* Logo a la izquierda, menú a la derecha */
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-nav-container img {
+            height: 80px; /* Tamaño unificado con el resto de las páginas */
+            width: auto;
+            display: block;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #d7ccc8;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 17px;
+            transition: color 0.2s ease;
+            padding: 5px 10px;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        nav a.active {
+            color: #ffffff;
+            border-bottom: 2px solid #ffffff;
+        }
+
+        /* --- Contenido Principal --- */
         main {
             max-width: 1200px;
             margin: 0 auto;
@@ -40,7 +90,7 @@
             border-radius: 2px;
         }
 
-    
+        /* --- Promociones --- */
         .promociones {
             margin-bottom: 60px;
         }
@@ -90,7 +140,7 @@
             color: #666;
         }
 
-       
+        /* --- Cuadrícula de Productos --- */
         .cuadrícula-productos {
             display: flex;
             flex-wrap: wrap;
@@ -110,7 +160,6 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-       
         .tarjeta-producto:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
@@ -121,7 +170,6 @@
             height: 200px;
             overflow: hidden;
             background-color: #eaeaea; 
-            background-size: cover;
         }
 
         .imagen-contenedor img {
@@ -129,7 +177,6 @@
             height: 100%;
             object-fit: cover; 
             transition: transform 0.5s ease;
-            background-size: cover;
         }
 
         .tarjeta-producto:hover .imagen-contenedor img {
@@ -194,65 +241,66 @@
             background-color: #4a3321; 
         }
 
-       
-        header {
-            background-color: #3e2723;
-            padding: 15px;
-        }
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        nav a {
-            color: #d7ccc8;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a.active {
-            color: #ffffff;
-            border-bottom: 2px solid #ffffff;
-        }
+        /* --- Footer --- */
         footer {
             background-color: #a67b5b;
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 25px;
             margin-top: 60px;
+            font-size: 0.95rem;
+        }
+
+        /* --- Responsive --- */
+        @media(max-width: 768px) {
+            .main-navbar-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .logo-nav-container img {
+                height: 70px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="menu.html">Menú</a></li>
-                <li><a href="productos.html" class="active">Productos</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
+        <div class="main-navbar-container">
+            <div class="logo-nav-container">
+                <a href="index.html">
+                    <img src="Logo.png" alt="Logo Byte & Coffee">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="menu.html">Menú</a></li>
+                    <li><a href="productos.html" class="active">Productos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
-
-       
         <section class="promociones">
             <h2>Promociones del Mes</h2>
             <div class="contenedor-promos">
                 
-                
                 <div class="tarjeta-promo">
                     <span class="etiqueta-descuento">2x1</span>
                     <h3>Jueves de Capuchino</h3>
-                    <p>Compra un capuchino grande y el segundo va por nuestra cuenta. ¡Aplica para llevar o consumir en el local!</p>
+                    <p>Compra un capuchino grande y el second va por nuestra cuenta. ¡Aplica para llevar o consumir en el local!</p>
                 </div>
 
-                
                 <div class="tarjeta-promo">
                     <span class="etiqueta-descuento">-15%</span>
                     <h3>Combo Mañanero</h3>
@@ -262,16 +310,13 @@
             </div>
         </section>
 
-        
         <section class="productos-destacados">
             <h2>Productos Destacados</h2>
             <div class="cuadrícula-productos">
 
-                
                 <article class="tarjeta-producto">
                     <div class="imagen-contenedor">
-                        
-                        <img src="https://i.pinimg.com/736x/1f/34/3a/1f343aab496000970f6dcdec19242fd0.jpg">
+                        <img src="https://i.pinimg.com/736x/1f/34/3a/1f343aab496000970f6dcdec19242fd0.jpg" alt="Frapuccino de Caramelo con crema batida">
                     </div>
                     <div class="contenido-producto">
                         <span class="categoria">Bebidas Frías</span>
@@ -284,7 +329,6 @@
                     </div>
                 </article>
 
-                
                 <article class="tarjeta-producto">
                     <div class="imagen-contenedor">
                         <img src="https://i.pinimg.com/736x/91/c7/32/91c732154ff948e08e4cc8e027f6942c.jpg" alt="Porción de tarta de queso con cobertura de mermelada de frutos rojos">
@@ -300,7 +344,6 @@
                     </div>
                 </article>
 
-                
                 <article class="tarjeta-producto">
                     <div class="imagen-contenedor">
                         <img src="https://i.pinimg.com/1200x/f8/56/d2/f856d2d30045e34f7a3d7438d81c5141.jpg" alt="Taza de café latte con arte de corazón en la espuma">
@@ -318,12 +361,10 @@
 
             </div>
         </section>
-
     </main>
 
-    
     <footer>
-        <p>&copy; 2026 Cafetería "Byte & Coffee".Hecho con amor y cafeína</p>
+        <p>&copy; 2026 Cafetería "Byte & Coffee". Hecho con amor y cafeína.</p>
     </footer>
 
 </body>
