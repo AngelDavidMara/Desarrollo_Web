@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Productos - Cafetería</title>
+
+    
+    <style>
+       
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fcf8f5; /* Fondo cálido tono café claro */
+            color: #4a3b32;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #5c4033;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #d4a373; /* Detalle dorado/café */
+            margin: 8px auto 0 auto;
+            border-radius: 2px;
+        }
+
+    
+        .promociones {
+            margin-bottom: 60px;
+        }
+
+        .contenedor-promos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .tarjeta-promo {
+            background-color: #ffffff;
+            border-left: 5px solid #e63946; 
+            border-radius: 8px;
+            padding: 20px;
+            flex: 1;
+            min-width: 280px;
+            max-width: 500px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .etiqueta-descuento {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #e63946;
+            color: white;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .tarjeta-promo h3 {
+            margin: 0 0 10px 0;
+            color: #1d3557;
+            font-size: 1.3rem;
+        }
+
+        .tarjeta-promo p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #666;
+        }
+
+       
+        .cuadrícula-productos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .tarjeta-producto {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+       
+        .tarjeta-producto:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .imagen-contenedor {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background-color: #eaeaea; 
+            background-size: cover;
+        }
+
+        .imagen-contenedor img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            transition: transform 0.5s ease;
+            background-size: cover;
+        }
+
+        .tarjeta-producto:hover .imagen-contenedor img {
+            transform: scale(1.08); 
+        }
+
+        .contenido-producto {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; 
+        }
+
+        .categoria {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #a3704c;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .contenido-producto h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.3rem;
+            color: #3e2723;
+        }
+
+        .contenido-producto p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #6d5d53;
+            margin: 0 0 20px 0;
+            flex-grow: 1;
+        }
+
+        .precio-boton {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .precio {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #2e7d32; 
+        }
+
+        .btn-comprar {
+            background-color: #6f4e37; 
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-comprar:hover {
+            background-color: #4a3321; 
+        }
+
+       
+        header {
+            background-color: #3e2723;
+            padding: 15px;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav a {
+            color: #d7ccc8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a.active {
+            color: #ffffff;
+            border-bottom: 2px solid #ffffff;
+        }
+        footer {
+            background-color: #a67b5b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="menu.html">Menú</a></li>
+                <li><a href="productos.html" class="active">Productos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+       
+        <section class="promociones">
+            <h2>Promociones del Mes</h2>
+            <div class="contenedor-promos">
+                
+                
+                <div class="tarjeta-promo">
+                    <span class="etiqueta-descuento">2x1</span>
+                    <h3>Jueves de Capuchino</h3>
+                    <p>Compra un capuchino grande y el segundo va por nuestra cuenta. ¡Aplica para llevar o consumir en el local!</p>
+                </div>
+
+                
+                <div class="tarjeta-promo">
+                    <span class="etiqueta-descuento">-15%</span>
+                    <h3>Combo Mañanero</h3>
+                    <p>Disfruta de cualquier café americano más un croissant horneado del día con un descuento especial de 7:00 AM a 10:00 AM.</p>
+                </div>
+
+            </div>
+        </section>
+
+        
+        <section class="productos-destacados">
+            <h2>Productos Destacados</h2>
+            <div class="cuadrícula-productos">
+
+                
+                <article class="tarjeta-producto">
+                    <div class="imagen-contenedor">
+                        
+                        <img src="https://i.pinimg.com/736x/1f/34/3a/1f343aab496000970f6dcdec19242fd0.jpg">
+                    </div>
+                    <div class="contenido-producto">
+                        <span class="categoria">Bebidas Frías</span>
+                        <h3>Frapuccino de Caramelo</h3>
+                        <p>Café espresso licuado con hielo, leche seleccionada y nuestro jarabe de caramelo artesanal. Coronado con una montaña de crema batida.</p>
+                        <div class="precio-boton">
+                            <span class="precio">L. 85.00</span>
+                            <button class="btn-comprar">Ordenar</button>
+                        </div>
+                    </div>
+                </article>
+
+                
+                <article class="tarjeta-producto">
+                    <div class="imagen-contenedor">
+                        <img src="https://i.pinimg.com/736x/91/c7/32/91c732154ff948e08e4cc8e027f6942c.jpg" alt="Porción de tarta de queso con cobertura de mermelada de frutos rojos">
+                    </div>
+                    <div class="contenido-producto">
+                        <span class="categoria">Repostería</span>
+                        <h3>Cheesecake de Frutos Rojos</h3>
+                        <p>Suave y cremosa tarta de queso horneada a la perfección sobre una base de galleta crujiente, cubierta con mermelada casera de fresas y moras.</p>
+                        <div class="precio-boton">
+                            <span class="precio">L. 65.00</span>
+                            <button class="btn-comprar">Ordenar</button>
+                        </div>
+                    </div>
+                </article>
+
+                
+                <article class="tarjeta-producto">
+                    <div class="imagen-contenedor">
+                        <img src="https://i.pinimg.com/1200x/f8/56/d2/f856d2d30045e34f7a3d7438d81c5141.jpg" alt="Taza de café latte con arte de corazón en la espuma">
+                    </div>
+                    <div class="contenido-producto">
+                        <span class="categoria">Bebidas Calientes</span>
+                        <h3>Café Latte Artesanal</h3>
+                        <p>Una combinación perfecta de nuestro espresso concentrado con leche vaporizada suave y una delicada capa de espuma con arte latte hecho por nuestros baristas.</p>
+                        <div class="precio-boton">
+                            <span class="precio">L. 55.00</span>
+                            <button class="btn-comprar">Ordenar</button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    
+    <footer>
+        <p>&copy; 2026 Cafetería "Byte & Coffee".Hecho con amor y cafeína</p>
+    </footer>
+
+</body>
+</html>
