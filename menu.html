@@ -1,0 +1,641 @@
+<html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Completo - Cafè delizioso</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5eee6;
+            color: #6b4c3b;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(to right, #a67b5b, #c49a6c);
+            color: #fff8f0;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .logo-container h1 {
+            font-size: 3rem;
+            letter-spacing: 2px;
+        }
+
+        .slogan {
+            font-style: italic;
+            color: #f8e6d2;
+            margin-top: 5px;
+        }
+
+        .main-navbar {
+            background-color: #3e2723;
+            padding: 15px;
+            margin: -30px -20px 20px -20px; 
+        }
+
+        .main-navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .main-navbar a {
+            color: #d7ccc8;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s ease;
+            background: none; 
+            padding: 5px 10px;
+            border-radius: 0;
+        }
+
+        .main-navbar a:hover {
+            color: #ffffff;
+            background: none;
+        }
+
+        .main-navbar a.active {
+            color: #ffffff;
+            border-bottom: 2px solid #ffffff;
+        }
+
+        
+        .buscador-menu {
+            margin: 25px auto;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .buscador-menu input {
+            width: 300px;
+            padding: 12px;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            background-color: #fffaf5;
+        }
+
+        .buscador-menu button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            background-color: #c49a6c;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .buscador-menu button:hover {
+            background-color: #b5835a;
+            transform: scale(1.05);
+        }
+
+        .menu-subnav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 15px;
+            margin-top: 20px;
+            padding: 0;
+        }
+
+        .menu-subnav a {
+            text-decoration: none;
+            color: #fff8f0;
+            background-color: rgba(255,255,255,0.1);
+            padding: 10px 15px;
+            border-radius: 20px;
+            transition: 0.3s;
+            font-weight: normal;
+        }
+
+        .menu-subnav a:hover {
+            background-color: #c49a6c;
+        }
+
+        section {
+            padding: 50px 20px;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #8b5e3c;
+        }
+
+        .nota-seccion {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #a67b5b;
+        }
+
+        .contenedor-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .item-menu,
+        .tarjeta-combo {
+            background-color: #fffaf5;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            position: relative;
+            text-align: left; 
+        }
+
+        .item-menu:hover,
+        .tarjeta-combo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+        }
+
+        .item-menu h3,
+        .tarjeta-combo h3 {
+            color: #8b5e3c;
+            margin-bottom: 10px;
+        }
+
+        .descripcion {
+            color: #9b7358;
+            margin-bottom: 15px;
+        }
+
+        .precio,
+        .precio-ahora {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #c49a6c;
+        }
+
+        .precio-antes {
+            display: block;
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .etiqueta-popular,
+        .etiqueta-saludable,
+        .etiqueta-dieta,
+        .alergenos {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .etiqueta-popular {
+            background-color: #c49a6c;
+            color: white;
+            position: absolute;
+            top: -10px;
+            right: 15px;
+        }
+
+        .etiqueta-saludable {
+            background-color: #d7ebd0;
+            color: #4d6b43;
+        }
+
+        .etiqueta-dieta {
+            background-color: #e3f2d9;
+            color: #567043;
+        }
+
+        .alergenos {
+            background-color: #f7d6d6;
+            color: #8b4a4a;
+        }
+
+        .formulario-container {
+            background-color: #fffaf5;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        fieldset {
+            border: 2px solid #d2b48c;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        legend {
+            padding: 0 10px;
+            font-weight: bold;
+            color: #8b5e3c;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #d2b48c;
+            margin-top: 5px;
+            background-color: #fffdfb;
+        }
+
+        button[type="submit"] {
+            background-color: #a67b5b;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #8b5e3c;
+        }
+
+        footer {
+            background-color: #a67b5b;
+            color: #fff8f0;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .info-footer {
+            margin-bottom: 30px;
+        }
+
+        .redes-sociales {
+            margin-top: 15px;
+        }
+
+        .red-enlace {
+            color: #f8e6d2;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .red-enlace:hover {
+            color: #ffe9cc;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            color: #f1ddd0;
+            font-size: 0.9rem;
+        }
+
+        @media(max-width: 768px) {
+            .logo-container h1 {
+                font-size: 2.2rem;
+            }
+
+            .main-navbar ul {
+                flex-direction: row; 
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .menu-subnav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .buscador-menu {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .buscador-menu input {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="main-navbar">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="menu.html" class="active">Menú</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <div class="logo-container">
+            <h1>Byte &amp; Coffee</h1>
+            <p class="slogan">Artesanos del grano a tu taza</p>
+        </div>
+         
+        <div class="buscador-menu">
+            <input type="search" placeholder="Buscar tu café o platillo favorito...">
+            <button type="button">Buscar</button>
+        </div>
+
+        <nav class="menu-subnav">
+            <ul>
+                <li><a href="#cafes-clasicos">Cafés Clásicos</a></li>
+                <li><a href="#especialidades">Especialidades de la Casa</a></li>
+                <li><a href="#bebidas-frias">Bebidas Frías &amp; Frappés</a></li>
+                <li><a href="#te-infusiones">Tés e Infusiones</a></li>
+                <li><a href="#desayunos">Desayunos &amp; Brunch</a></li>
+                <li><a href="#reposteria">Repostería Artesanal</a></li>
+                <li><a href="#combos">Combos &amp; Promos</a></li>
+                <li><a href="#contacto">Ubicación y Reservas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+        <section id="cafes-clasicos">
+            <h2>Cafetería Clásica</h2>
+            <p class="nota-seccion">Disponibles en leche entera, deslactosada, de almendras (+ $0.50) o de avena (+ $0.50).</p>
+             
+            <div class="contenedor-items">
+                <article class="item-menu">
+                    <div class="info-platillo">
+                        <h3>Espresso Solo / Doble</h3>
+                        <p class="descripcion">Extracción intensa de granos de especialidad con notas de chocolate amargo.</p>
+                        <span class="alergenos">Libre de gluten</span>
+                    </div>
+                    <span class="precio">$2.00 / $2.75</span>
+                </article>
+
+                <article class="item-menu">
+                    <div class="info-platillo">
+                        <h3>Café Americano</h3>
+                        <p class="descripcion">Espresso doble diluido en agua caliente a temperatura perfecta.</p>
+                    </div>
+                    <span class="precio">$2.50</span>
+                </article>
+
+                <article class="item-menu">
+                    <div class="info-platillo">
+                        <h3>Cappuccino Tradicional</h3>
+                        <p class="descripcion">Partes iguales de espresso, leche vaporizada y una densa capa de espuma de leche.</p>
+                    </div>
+                    <span class="precio">$3.50</span>
+                </article>
+
+                <article class="item-menu">
+                    <div class="info-platillo">
+                        <h3>Café Latte</h3>
+                        <p class="descripcion">Una base de espresso con abundante leche vaporizada y una fina capa de crema.</p>
+                    </div>
+                    <span class="precio">$3.75</span>
+                </article>
+            </div>
+        </section>
+
+        <section id="especialidades">
+            <h2>Especialidades de la Casa</h2>
+            <div class="contenedor-items">
+                <article class="item-menu destacado">
+                    <span class="etiqueta-popular">¡El más vendido!</span>
+                    <div class="info-platillo">
+                        <h3>Bombón Latte</h3>
+                        <p class="descripcion">Deliciosa combinación de leche condensada, un shot de espresso y leche vaporizada con canela.</p>
+                    </div>
+                    <span class="precio">$4.25</span>
+                </article>
+
+                <article class="item-menu">
+                    <div class="info-platillo">
+                        <h3>Mocha Blanco con Lavanda</h3>
+                        <p class="descripcion">Espresso, chocolate blanco fundido, leche vaporizada y un sutil toque artesanal de sirope de lavanda.</p>
+                    </div>
+                    <span class="precio">$4.50</span>
+                </article>
+
+                <article class="item-menu">
+                    <div class="info-platillo">
+                        <h3>Caramel Macchiato Supremo</h3>
+                        <p class="descripcion">Leche manchada con espresso, vainilla de Madagascar y un abundante espiral de caramelo caliente.</p>
+                    </div>
+                    <span class="precio">$4.50</span>
+                </article>
+            </div>
+        </section>
+
+        <section id="bebidas-frias">
+            <h2>Bebidas Frías y Frappés</h2>
+            <div class="contenedor-items">
+                <article class="item-menu">
+                    <div class="info-platillo">
+                        <h3>Cold Brew Clásico</h3>
+                        <p class="descripcion">Café extraído en frío por 18 horas. Suave, refrescante y altamente cafeinado.</p>
+                    </div>
+                    <span class="precio">$3.80</span>
+                </article>
+
+                <article class="item-menu">
+                    <div class="info-platillo">
+                        <h3>Frappé de Cookies &amp; Cream</h3>
+                        <p class="descripcion">Base de café licuado con hielo, galletas de chocolate, leche y topping de crema batida.</p>
+                    </div>
+                    <span class="precio">$4.95</span>
+                </article>
+
+                <article class="item-menu">
+                    <div class="info-platillo">
+                        <h3>Tonic Espresso</h3>
+                        <p class="descripcion">Agua tónica premium, una rodaja de limón deshidratado y un shot de espresso flotando.</p>
+                    </div>
+                    <span class="precio">$4.20</span>
+                </article>
+            </div>
+        </section>
+
+        <section id="te-infusiones">
+            <h2>Tés e Infusiones Premium</h2>
+            <div class="contenedor-items">
+                <article class="item-menu">
+                    <div class="info-platillo">
+                        <h3>Matcha Latte</h3>
+                        <p class="descripcion">Té verde matcha ceremonial disuelto en leche vaporizada (sugerido con leche de coco).</p>
+                        <span class="etiqueta-saludable">Antioxidante</span>
+                    </div>
+                    <span class="precio">$4.50</span>
+                </article>
+
+                <article class="item-menu">
+                    <div class="info-platillo">
+                        <h3>Chai Latte Especiado</h3>
+                        <p class="descripcion">Infusión de té negro con especias tradicionales (canela, clavo, cardamomo) y leche.</p>
+                    </div>
+                    <span class="precio">$4.25</span>
+                </article>
+            </div>
+        </section>
+
+        <section id="desayunos">
+            <h2>Desayunos &amp; Brunch (Todo el día)</h2>
+            <div class="contenedor-items">
+                <article class="item-menu">
+                    <div class="info-platillo">
+                        <h3>Avocado Toast</h3>
+                        <p class="descripcion">Pan de masa madre tostado, guacamole artesanal, huevo poché, semillas de sésamo y brotes.</p>
+                        <span class="etiqueta-dieta">Vegetariano</span>
+                    </div>
+                    <span class="precio">$6.50</span>
+                </article>
+
+                <article class="item-menu">
+                    <div class="info-platillo">
+                        <h3>Waffles Belgas de Frutos Rojos</h3>
+                        <p class="descripcion">Dos waffles crujientes acompañados de fresas, arándanos, miel de maple pura y azúcar glass.</p>
+                    </div>
+                    <span class="precio">$5.80</span>
+                </article>
+
+                <article class="item-menu">
+                    <div class="info-platillo">
+                        <h3>Sándwich de Pavo y Queso Brie</h3>
+                        <p class="descripcion">Pan ciabatta rústico, pechuga de pavo ahumada, queso brie fundido y rúcula fresca.</p>
+                    </div>
+                    <span class="precio">$7.25</span>
+                </article>
+            </div>
+        </section>
+
+        <section id="reposteria">
+            <h2>Repostería Artesanal</h2>
+            <div class="contenedor-items">
+                <article class="item-menu">
+                    <div class="info-platillo">
+                        <h3>Croissant de Almendras</h3>
+                        <p class="descripcion">Hojaldre relleno de crema de almendras y cubierto de almendras fileteadas tostadas.</p>
+                    </div>
+                    <span class="precio">$3.00</span>
+                </article>
+
+                <article class="item-menu">
+                    <div class="info-platillo">
+                        <h3>Roll de Canela Glaseado</h3>
+                        <p class="descripcion">Masa suave con canela de Ceylán y un generoso glaseado de queso crema.</p>
+                    </div>
+                    <span class="precio">$2.80</span>
+                </article>
+
+                <article class="item-menu">
+                    <div class="info-platillo">
+                        <h3>Tarta de Zanahoria (Carrot Cake)</h3>
+                        <p class="descripcion">Bizcocho especiado con nueces y zanahoria, intercalado con frosting de queso.</p>
+                        <span class="alergenos">Contiene nueces</span>
+                    </div>
+                    <span class="precio">$4.50</span>
+                </article>
+            </div>
+        </section>
+
+        <section id="combos">
+            <h2>Combos &amp; Promociones</h2>
+            <div class="contenedor-items">
+                <div class="tarjeta-combo">
+                    <h3>Combo Despertar</h3>
+                    <p>1 Café Americano Grande + 1 Avocado Toast</p>
+                    <span class="precio-antes">Antes: $9.00</span>
+                    <span class="precio-ahora">Ahora: $7.50</span>
+                </div>
+                 
+                <div class="tarjeta-combo">
+                    <h3>Tarde de Té</h3>
+                    <p>1 Matcha o Chai Latte + 1 Porción de Tarta a elección</p>
+                    <span class="precio-antes">Antes: $9.00</span>
+                    <span class="precio-ahora">Ahora: $7.99</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <hr>
+
+    <footer>
+        <section id="contacto">
+            <div class="info-footer">
+                <h2>Visítanos o Haz tu Pedido</h2>
+                <p><strong>Ubicación:</strong> Bo. San Francisco, Comayagua, Honduras</p>
+                <p><strong>Teléfono / WhatsApp:</strong> +123 456 7890</p>
+                <p><strong>Horarios:</strong> Lunes a Viernes: 7:00 AM - 8:00 PM | Sábados y Domingos: 8:00 AM - 10:00 PM</p>
+                 
+                <div class="redes-sociales">
+                    <a href="https://facebook.com" target="_blank" class="red-enlace">Facebook</a> | 
+                    <a href="https://twitter.com" target="_blank" class="red-enlace">X (Twitter)</a> | 
+                    <a href="https://instagram.com" target="_blank" class="red-enlace">Instagram</a>
+                </div>
+            </div>
+
+            <div class="formulario-container">
+                <h3>Reserva una Mesa o Pide Anticipado</h3>
+                <form action="#" method="POST">
+                    <fieldset>
+                        <legend>Datos Personales</legend>
+                        <label for="nombre">Nombre Completo:</label>
+                        <input type="text" id="nombre" name="nombre" required="" placeholder="Ej. Juan Pérez">
+                         
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Ej. 555-1234">
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Detalles de la Reserva / Pedido</legend>
+                        <label for="servicio">¿Qué deseas?</label>
+                        <select id="servicio" name="servicio">
+                            <option value="reserva">Reservar Mesa</option>
+                            <option value="llevar">Pedir para pasar a recoger</option>
+                            <option value="evento">Evento privado</option>
+                        </select>
+
+                        <label for="fecha">Fecha:</label>
+                        <input type="date" id="fecha" name="fecha">
+
+                        <label for="personas">Número de Personas (Si es reserva):</label>
+                        <input type="number" id="personas" name="personas" min="1" max="10" value="">
+
+                        <label for="notas">Instrucciones especiales o Alergias:</label>
+                        <textarea id="notas" name="notas" rows="3" placeholder="Ej: Mesa cerca de la ventana, alérgico a las nueces..."></textarea>
+                    </fieldset>
+
+                    <button type="submit">Enviar Solicitud</button>
+                </form>
+            </div>
+        </section>
+         
+        <p class="copyright">2026 Cafetería "Byte & Coffee". Hecho con amor y cafeína.</p>
+    </footer>
+
+</body></html>
