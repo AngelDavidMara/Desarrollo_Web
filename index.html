@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafetería</title>
+
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fcf8f5; 
+            color: #4a3b32;
+            text-align: center;
+        }
+
+        
+        header {
+            background-color: #3e2723;
+            padding: 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #d7ccc8;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        nav a.active {
+            color: #ffffff;
+            border-bottom: 2px solid #ffffff;
+        }
+
+        
+        .banner {
+            background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93');
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            color: white;
+            text-shadow: 2px 2px 5px black;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        
+        .contenido {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .info {
+            background: white;
+            margin: 20px auto;
+            padding: 25px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            border-left: 5px solid #d4a373; 
+        }
+
+        .info h2 {
+            color: #5c4033;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .info p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #6d5d53;
+        }
+
+        
+        footer {
+            background-color: #a67b5b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="menu.html">Menú</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="banner">
+        ¡Bienvenidos!
+    </section>
+
+    <main class="contenido">
+
+        <div class="info">
+            <h2>Bienvenida</h2>
+            <p>
+                Bienvenido a la Cafetería, un lugar acogedor donde podrás
+                disfrutar de deliciosos cafés, postres y un ambiente agradable
+                para compartir con amigos y familia.
+            </p>
+        </div>
+
+        <div class="info">
+            <h2>Información de la Cafetería</h2>
+            <p>
+                Ofrecemos café gourmet, bebidas frías, postres caseros
+                y atención de calidad para todos nuestros clientes.
+            </p>
+        </div>
+
+        <div class="info">
+            <h2>Horarios y Ubicación</h2>
+            <p>
+                 Bo. San Francisco, Comayagua, Honduras<br><br>
+                 Lunes a Viernes: 7:00 AM - 8:00 PM<br>
+                 Sábados y Domingos: 8:00 AM - 10:00 PM
+            </p>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Cafetería "Byte & Coffee". Hecho con amor y cafeína.</p>
+    </footer>
+
+</body>
+</html>
